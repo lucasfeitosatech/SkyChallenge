@@ -13,13 +13,18 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        APIManager.shared().getVideos { movieResponse in
-            if let movies = movieResponse {
-                print(movies)
-            } else {
-                
+        if(Helper.isInternetAvailable()) {
+            APIManager.shared().getVideos { movieResponse in
+                if let movies = movieResponse {
+                    print(movies)
+                } else {
+                    
+                }
             }
+        } else {
+            
         }
+        
     }
 
 
