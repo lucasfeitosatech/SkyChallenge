@@ -14,6 +14,7 @@
 		A4F2638F24EDDED800A0FAE3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4F2638E24EDDED800A0FAE3 /* Assets.xcassets */; };
 		A4F2639224EDDED800A0FAE3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4F2639024EDDED800A0FAE3 /* LaunchScreen.storyboard */; };
 		A4F2639C24EDE6B600A0FAE3 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A4F2639B24EDE6B600A0FAE3 /* Alamofire */; };
+		A4F2639E24EDE79E00A0FAE3 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F2639D24EDE79E00A0FAE3 /* APIManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		A4F2638E24EDDED800A0FAE3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A4F2639124EDDED800A0FAE3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A4F2639324EDDED800A0FAE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A4F2639D24EDE79E00A0FAE3 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 		A4F2639924EDE3E600A0FAE3 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				A4F2639D24EDE79E00A0FAE3 /* APIManager.swift */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -154,6 +157,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4F2639E24EDE79E00A0FAE3 /* APIManager.swift in Sources */,
 				A4F2638A24EDDED100A0FAE3 /* ViewController.swift in Sources */,
 				A4F2638624EDDED100A0FAE3 /* AppDelegate.swift in Sources */,
 				A4F2638824EDDED100A0FAE3 /* SceneDelegate.swift in Sources */,
