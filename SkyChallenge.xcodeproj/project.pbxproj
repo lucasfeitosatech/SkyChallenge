@@ -15,6 +15,7 @@
 		A4F2639224EDDED800A0FAE3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4F2639024EDDED800A0FAE3 /* LaunchScreen.storyboard */; };
 		A4F2639C24EDE6B600A0FAE3 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A4F2639B24EDE6B600A0FAE3 /* Alamofire */; };
 		A4F2639E24EDE79E00A0FAE3 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F2639D24EDE79E00A0FAE3 /* APIManager.swift */; };
+		A4F263A324EDEC7900A0FAE3 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F263A224EDEC7900A0FAE3 /* Movie.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		A4F2639124EDDED800A0FAE3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A4F2639324EDDED800A0FAE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4F2639D24EDE79E00A0FAE3 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		A4F263A224EDEC7900A0FAE3 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 		A4F2638424EDDED100A0FAE3 /* SkyChallenge */ = {
 			isa = PBXGroup;
 			children = (
+				A4F2639F24EDEBDF00A0FAE3 /* Model */,
 				A4F2639924EDE3E600A0FAE3 /* Util */,
 				A4F2638524EDDED100A0FAE3 /* AppDelegate.swift */,
 				A4F2638724EDDED100A0FAE3 /* SceneDelegate.swift */,
@@ -78,6 +81,14 @@
 				A4F2639D24EDE79E00A0FAE3 /* APIManager.swift */,
 			);
 			name = Util;
+			sourceTree = "<group>";
+		};
+		A4F2639F24EDEBDF00A0FAE3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A4F263A224EDEC7900A0FAE3 /* Movie.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -158,6 +169,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4F2639E24EDE79E00A0FAE3 /* APIManager.swift in Sources */,
+				A4F263A324EDEC7900A0FAE3 /* Movie.swift in Sources */,
 				A4F2638A24EDDED100A0FAE3 /* ViewController.swift in Sources */,
 				A4F2638624EDDED100A0FAE3 /* AppDelegate.swift in Sources */,
 				A4F2638824EDDED100A0FAE3 /* SceneDelegate.swift in Sources */,

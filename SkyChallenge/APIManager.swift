@@ -62,7 +62,7 @@ class APIManager: NSObject {
     }
     
     
-    func getVideos(completion:@escaping (String?) -> Void) {
+    func getVideos(completion:@escaping (Movie?) -> Void) {
         
         let url = "\(self.baseUrl)/Movies"
         AF.request(url,encoding:JSONEncoding.default,headers:headers).validate().responseJSON { response in
@@ -70,7 +70,16 @@ class APIManager: NSObject {
             switch response.result {
             case let .success(value):
                 print(value)
-                completion(nil)
+                guard let data = response.data else { return }
+                do {
+                    let decoder = JSONDecoder()
+                    let res = try decoder.decode(Movie.self, from: data)
+                    completion(res)
+                } catch let error {
+                    print(error)
+                    completion(nil)
+                }
+                break
             case .failure:
                 completion(nil)
                 break
