@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController {
     
     let loader = Loader()
+    var popUp = Modal()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,15 +24,27 @@ class ViewController: UIViewController {
                 self.loader.dismiss()
                 if let movies = movieResponse {
                     print(movies)
+                    self.showPopUp(message: "Requisição concluída com sucesso!", systemImage: "checkmark", buttonText: "Fechar")
                 } else {
                     
                 }
             }
         } else {
-            
+            self.showPopUp(message: "Você não possui Internet no momento!", systemImage: "exclamationmark.circle", buttonText: "Fechar")
         }
         
     }
+    
+    func showPopUp(message:String,systemImage:String,buttonText:String){
+        popUp = Modal()
+        popUp.label.text = message
+        popUp.image.image = UIImage(systemName: systemImage)
+        popUp.button.setTitle(buttonText, for: .normal)
+        popUp.button.addTarget(self.popUp, action: #selector(self.popUp.animateOut), for: .touchUpInside)
+        self.view.addSubview(self.popUp)
+    }
+    
+    
     
    
 
