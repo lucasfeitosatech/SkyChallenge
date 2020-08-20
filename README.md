@@ -5,7 +5,7 @@
 ![detail](/images/detail.png)
 
 
-## Histórico de lançamentos
+## Releases
 
   * 1.0.0
     * List with Videos
