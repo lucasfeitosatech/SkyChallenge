@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     var popUp = Modal()
     let reuseIdentifier = "movieCell"
     var movies:Movie = []
+    var selectedMovie:MovieElement?
     
     @IBOutlet weak var moviesCollectionView: UICollectionView!
     
@@ -24,6 +25,10 @@ class ViewController: UIViewController {
         requestMovies()
         self.moviesCollectionView.delegate = self
         self.moviesCollectionView.dataSource = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     func requestMovies() {
@@ -85,6 +90,14 @@ class ViewController: UIViewController {
         URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "detail" {
+            if let vc = segue.destination as? DetailViewController {
+                vc.movie = self.selectedMovie
+            }
+        }
+    }
+    
 }
 
 extension ViewController:UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
@@ -128,6 +141,8 @@ extension ViewController:UICollectionViewDelegate, UICollectionViewDataSource,UI
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.selectedMovie = movies[indexPath.row]
+        self.performSegue(withIdentifier: "detail", sender: self)
         
     }
     
