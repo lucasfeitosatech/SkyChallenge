@@ -12,28 +12,34 @@ class ViewController: UIViewController {
     
     let loader = Loader()
     var popUp = Modal()
+    let reuseIdentifier = "movieCell"
+    var movies:Movie!
+    
     @IBOutlet weak var moviesCollectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        moviesCollectionView.delegate = self
+        moviesCollectionView.dataSource = self
+        requestMovies()
         
-        
+    }
+    
+    func requestMovies() {
         if(Helper.isInternetAvailable()) {
             loader.show(controller: self)
             APIManager.shared().getVideos { movieResponse in
                 self.loader.dismiss()
                 if let movies = movieResponse {
-                    print(movies)
-                    self.showPopUp(message: "Requisição concluída com sucesso!", systemImage: "checkmark", buttonText: "Fechar")
+                    self.movies = movies
                 } else {
-                    
+                    self.showPopUp(message: "Não foi possível obter a lista de filmes no momento, tente novamente mais tarde!", systemImage: "exclamationmark.circle", buttonText: "Fechar")
                 }
             }
         } else {
             self.showPopUp(message: "Você não possui Internet no momento!", systemImage: "exclamationmark.circle", buttonText: "Fechar")
         }
-        
     }
     
     func showPopUp(message:String,systemImage:String,buttonText:String){
@@ -44,11 +50,47 @@ class ViewController: UIViewController {
         popUp.button.addTarget(self.popUp, action: #selector(self.popUp.animateOut), for: .touchUpInside)
         self.view.addSubview(self.popUp)
     }
-    
-    
-    
-   
-
-
 }
 
+extension ViewController:UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat
+    {
+        return 5;
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let cellSize = CGSize(width: (collectionView.bounds.width - (3 * 10))/2, height: 150)
+        return cellSize
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets
+    {
+        let sectionInset = UIEdgeInsets.init(top: 10, left: 10, bottom: 10, right: 10)
+        
+        return sectionInset
+    }
+    
+    //UICollectionViewDatasource methods
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return movies.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = UICollectionViewCell()
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        
+    }
+    
+}

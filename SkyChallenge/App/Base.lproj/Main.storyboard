@@ -17,13 +17,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cine SKY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rmR-y9-g5i">
-                                <rect key="frame" x="30" y="59" width="90" height="25.5"/>
+                                <rect key="frame" x="30" y="59" width="354" height="25.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Uma seleção de filmes imperdíveis" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e1i-ep-8kk">
-                                <rect key="frame" x="30" y="114.5" width="237" height="18"/>
+                                <rect key="frame" x="30" y="114.5" width="354" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -37,7 +37,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="5q6-Zu-yCu">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="movieCell" id="5q6-Zu-yCu">
                                         <rect key="frame" x="0.0" y="0.0" width="179" height="359"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="KpX-bs-8HW">
@@ -71,11 +71,13 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="e1i-ep-8kk" secondAttribute="trailing" constant="30" id="2YI-ea-6Vc"/>
                             <constraint firstItem="e1i-ep-8kk" firstAttribute="top" secondItem="rmR-y9-g5i" secondAttribute="bottom" constant="30" id="2gT-yI-byD"/>
                             <constraint firstItem="rmR-y9-g5i" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="9lp-3O-SAO"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="NK3-qV-uQI" secondAttribute="bottom" constant="20" id="JVa-BZ-ZVD"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NK3-qV-uQI" secondAttribute="trailing" constant="20" id="KDW-AT-8Qq"/>
                             <constraint firstItem="e1i-ep-8kk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="OnZ-gV-cp6"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rmR-y9-g5i" secondAttribute="trailing" constant="30" id="Pvv-h5-FDA"/>
                             <constraint firstItem="NK3-qV-uQI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="kvN-Bb-mvZ"/>
                             <constraint firstItem="NK3-qV-uQI" firstAttribute="top" secondItem="e1i-ep-8kk" secondAttribute="bottom" constant="15" id="rh8-Dc-mIP"/>
                             <constraint firstItem="rmR-y9-g5i" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="15" id="sXD-SM-WHg"/>
