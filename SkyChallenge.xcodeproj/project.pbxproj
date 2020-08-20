@@ -71,10 +71,9 @@
 				A4F263A624EDF29900A0FAE3 /* Interface */,
 				A4F2639F24EDEBDF00A0FAE3 /* Model */,
 				A4F2639924EDE3E600A0FAE3 /* Util */,
+				A4F263AD24EE08CE00A0FAE3 /* App */,
 				A4F2638524EDDED100A0FAE3 /* AppDelegate.swift */,
 				A4F2638724EDDED100A0FAE3 /* SceneDelegate.swift */,
-				A4F2638924EDDED100A0FAE3 /* ViewController.swift */,
-				A4F2638B24EDDED100A0FAE3 /* Main.storyboard */,
 				A4F2638E24EDDED800A0FAE3 /* Assets.xcassets */,
 				A4F2639024EDDED800A0FAE3 /* LaunchScreen.storyboard */,
 				A4F2639324EDDED800A0FAE3 /* Info.plist */,
@@ -106,6 +105,23 @@
 				A4F263A924EDFB7900A0FAE3 /* Modal.swift */,
 			);
 			name = Interface;
+			sourceTree = "<group>";
+		};
+		A4F263AD24EE08CE00A0FAE3 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				A4F263AE24EE08E900A0FAE3 /* Main */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		A4F263AE24EE08E900A0FAE3 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				A4F2638B24EDDED100A0FAE3 /* Main.storyboard */,
+				A4F2638924EDDED100A0FAE3 /* ViewController.swift */,
+			);
+			name = Main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

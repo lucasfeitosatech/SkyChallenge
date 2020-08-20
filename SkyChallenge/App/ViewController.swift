@@ -12,7 +12,8 @@ class ViewController: UIViewController {
     
     let loader = Loader()
     var popUp = Modal()
-
+    @IBOutlet weak var moviesCollectionView: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
