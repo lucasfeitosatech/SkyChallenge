@@ -1,7 +1,6 @@
 # SKY Challenge
  >This project a simple representation of a master-detail using a movie-api from SKY to retrieve data from json e present.
 
-![splash](/images/splash.png)
 ![master](/images/master.png)
 ![detail](/images/detail.png)
 
