@@ -29,7 +29,9 @@ class MovieCollectionViewCell: UICollectionViewCell {
     public func configureWith(movie:MovieElement){
         self.layer.borderWidth = 1.0
         self.layer.cornerRadius = 15.0
-        self.movieImage.image = UIImage(systemName: "xmark")
+        if let image = movie.image {
+            movieImage.image = image
+        } 
         self.movieLabel.text = movie.title
     }
     

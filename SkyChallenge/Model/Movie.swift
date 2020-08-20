@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 // This file was generated from JSON Schema using quicktype, do not modify it directly.
 // To parse the JSON, add this file to your project and do:
@@ -19,6 +20,7 @@ class MovieElement: Codable {
     let coverURL: String
     let backdropsURL: [String]
     let id: String
+    var image:UIImage?
 
     enum CodingKeys: String, CodingKey {
         case title, overview, duration

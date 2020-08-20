@@ -22,19 +22,18 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         //moviesCollectionView.register(MovieCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         requestMovies()
-        
+        self.moviesCollectionView.delegate = self
+        self.moviesCollectionView.dataSource = self
     }
     
     func requestMovies() {
         if(Helper.isInternetAvailable()) {
             loader.show(controller: self)
             APIManager.shared().getVideos { movieResponse in
-                self.loader.dismiss()
                 if let movies = movieResponse {
                     self.movies = movies
-                    self.moviesCollectionView.delegate = self
-                    self.moviesCollectionView.dataSource = self
-                    self.moviesCollectionView.reloadData()
+                    self.requestImages()
+                
                 } else {
                     self.showPopUp(message: "Não foi possível obter a lista de filmes no momento, tente novamente mais tarde!", systemImage: "exclamationmark.circle", buttonText: "Fechar")
                 }
@@ -52,6 +51,40 @@ class ViewController: UIViewController {
         popUp.button.addTarget(self.popUp, action: #selector(self.popUp.animateOut), for: .touchUpInside)
         self.view.addSubview(self.popUp)
     }
+    
+    func requestImages() {
+        let group = DispatchGroup() // initialize
+
+        movies.forEach { movie in
+
+            
+            group.enter()
+            getData(from: movie.coverURL) { data, response, error in
+                guard let data = data, error == nil else { return }
+                print("Download Finished")
+                if let image = UIImage(data: data){
+                    print(movie.coverURL)
+                     movie.image = image
+                }
+                group.leave()
+                
+            }
+            
+        }
+
+        group.notify(queue: .main) {
+            self.loader.dismiss()
+            self.moviesCollectionView.reloadData()
+        }
+        
+        print("Terminou")
+    }
+    
+    func getData(from coverUrl: String, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+        let url = URL(string: coverUrl)!
+        URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
+    }
+    
 }
 
 extension ViewController:UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
