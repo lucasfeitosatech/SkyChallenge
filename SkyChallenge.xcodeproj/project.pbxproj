@@ -19,6 +19,7 @@
 		A4F263A524EDEF6500A0FAE3 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F263A424EDEF6500A0FAE3 /* Helper.swift */; };
 		A4F263A824EDF2B400A0FAE3 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F263A724EDF2B400A0FAE3 /* Loader.swift */; };
 		A4F263AA24EDFB7900A0FAE3 /* Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F263A924EDFB7900A0FAE3 /* Modal.swift */; };
+		A4F263B024EE0E8200A0FAE3 /* MovieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F263AF24EE0E8200A0FAE3 /* MovieCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		A4F263A424EDEF6500A0FAE3 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		A4F263A724EDF2B400A0FAE3 /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		A4F263A924EDFB7900A0FAE3 /* Modal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modal.swift; sourceTree = "<group>"; };
+		A4F263AF24EE0E8200A0FAE3 /* MovieCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 			children = (
 				A4F2638B24EDDED100A0FAE3 /* Main.storyboard */,
 				A4F2638924EDDED100A0FAE3 /* ViewController.swift */,
+				A4F263AF24EE0E8200A0FAE3 /* MovieCollectionViewCell.swift */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -207,6 +210,7 @@
 				A4F263AA24EDFB7900A0FAE3 /* Modal.swift in Sources */,
 				A4F2638624EDDED100A0FAE3 /* AppDelegate.swift in Sources */,
 				A4F2638824EDDED100A0FAE3 /* SceneDelegate.swift in Sources */,
+				A4F263B024EE0E8200A0FAE3 /* MovieCollectionViewCell.swift in Sources */,
 				A4F263A824EDF2B400A0FAE3 /* Loader.swift in Sources */,
 				A4F263A524EDEF6500A0FAE3 /* Helper.swift in Sources */,
 			);

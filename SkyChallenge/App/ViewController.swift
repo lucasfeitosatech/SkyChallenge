@@ -13,15 +13,14 @@ class ViewController: UIViewController {
     let loader = Loader()
     var popUp = Modal()
     let reuseIdentifier = "movieCell"
-    var movies:Movie!
+    var movies:Movie = []
     
     @IBOutlet weak var moviesCollectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        moviesCollectionView.delegate = self
-        moviesCollectionView.dataSource = self
+        //moviesCollectionView.register(MovieCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         requestMovies()
         
     }
@@ -33,6 +32,9 @@ class ViewController: UIViewController {
                 self.loader.dismiss()
                 if let movies = movieResponse {
                     self.movies = movies
+                    self.moviesCollectionView.delegate = self
+                    self.moviesCollectionView.dataSource = self
+                    self.moviesCollectionView.reloadData()
                 } else {
                     self.showPopUp(message: "Não foi possível obter a lista de filmes no momento, tente novamente mais tarde!", systemImage: "exclamationmark.circle", buttonText: "Fechar")
                 }
@@ -52,7 +54,8 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController:UICollectionViewDelegate, UICollectionViewDataSource {
+extension ViewController:UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
+    
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat
     {
@@ -60,14 +63,13 @@ extension ViewController:UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let cellSize = CGSize(width: (collectionView.bounds.width - (3 * 10))/2, height: 150)
+        let cellSize = CGSize(width: (collectionView.bounds.width - (3 * 10))/2, height: 250)
         return cellSize
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets
     {
-        let sectionInset = UIEdgeInsets.init(top: 10, left: 10, bottom: 10, right: 10)
-        
+        let sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         return sectionInset
     }
     
@@ -81,8 +83,15 @@ extension ViewController:UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = UICollectionViewCell()
-        return cell
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? MovieCollectionViewCell {
+            let movie = movies[indexPath.row]
+            cell.configureWith(movie: movie)
+            return cell
+            
+        } else {
+            let cell = UICollectionViewCell()
+            return cell
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
